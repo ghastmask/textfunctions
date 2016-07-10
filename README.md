@@ -4,7 +4,7 @@ C++ Typed Functions Callable with Text
 
 ## Example
 
-``c++
+```c++
 auto multiply = create_text_function([&] (int a, int b) { return a * b; });
 std::string res;
 std::vector<std::string> args{2,5};
