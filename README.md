@@ -4,20 +4,22 @@ C++ Typed Functions Callable with Text
 
 ## Example
 
-    auto multiply = create_text_function([&] (int a, int b) { return a * b; });
-    std::string res;
-    std::vector<std::string> args{2,5};
-    multiply->call(args, res);
-    assert("10" == res);
-    TextFunctionLibrary lib;
-    lib.add(std::move(multiply),
-        TextFunctionHelp("multiply")
-          .arg("multiplicand", "it is multiplied")
-          .arg("multiplier", "it multiplies")
-          .description("Multiplies two numbers"));
-    res.clear();
-    lib.call("multiply", args, res);
-    assert("10" == res);
+``c++
+auto multiply = create_text_function([&] (int a, int b) { return a * b; });
+std::string res;
+std::vector<std::string> args{2,5};
+multiply->call(args, res);
+assert("10" == res);
+TextFunctionLibrary lib;
+lib.add(std::move(multiply),
+    TextFunctionHelp("multiply")
+      .arg("multiplicand", "it is multiplied")
+      .arg("multiplier", "it multiplies")
+      .description("Multiplies two numbers"));
+res.clear();
+lib.call("multiply", args, res);
+assert("10" == res);
+```
 
 String arguments are automatically converted to their correct type to call the function. There are also
 builtin functions inside of TextFunctionLibrary for getting help and searching for functions. Some uses cases would be
