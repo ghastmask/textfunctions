@@ -25,6 +25,44 @@ String arguments are automatically converted to their correct type to call the f
 builtin functions inside of TextFunctionLibrary for getting help and searching for functions. Some uses cases would be
 a game input console (~ in many FPS games) or a basic text RPC mechanism.
 
+Examples from the test file:
+
+Sample help output:
+
+```
+std::string concat [std::string] [std::string] -- Concatenates two strings
+std::string help -- Returns list of functions
+std::string help [std::string] -- Returns detailed help for matching function
+int multiply [int] [int] -- Multiplies two numbers
+std::string search [std::string] -- Returns list of functions matching regex
+```
+
+Sample detailed help output for the multiply function:
+
+```
+int multiply [int] [int]
+  Description: Multiplies two numbers
+  Arguments:
+      multiplicand: it is multiplied
+      multiplier: it multiplies
+```
+
+Searching for "two":
+
+```
+std::string concat [std::string] [std::string]
+  Description: Concatenates two strings
+  Arguments:
+    str1: a string
+    str2: another string
+
+int multiply [int] [int]
+  Description: Multiplies two numbers
+  Arguments:
+    multiplicand: it is multiplied
+    multiplier: it multiplies
+```
+
 # Compatibility
 
 I have only tested this with GCC 6.1.0
