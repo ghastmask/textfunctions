@@ -7,7 +7,7 @@ C++ Typed Functions Callable with Text
 ```c++
 auto multiply = create_text_function([&] (int a, int b) { return a * b; });
 std::string res;
-std::vector<std::string> args{2,5};
+std::vector<std::string> args{"2","5"};
 multiply->call(args, res);
 assert("10" == res);
 TextFunctionLibrary lib;
